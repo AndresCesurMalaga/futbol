@@ -3,7 +3,7 @@ package vista;
 import modelo.*;
 
 public class Pedir {
-    
+
     public static Liga pedirLiga() {
         String nombre;
         int numEquipos;
@@ -30,6 +30,7 @@ public class Pedir {
     public static Jugador pedirJugador() {
         String nombre;
         int juego;
+        int dni;
 
         System.out.println("Introduce el nombre del jugador");
         nombre = Terminal.lector.nextLine();
@@ -38,12 +39,17 @@ public class Pedir {
         juego = Terminal.lector.nextInt();
         Terminal.lector.nextLine();
 
-        return new Jugador(nombre, juego);
+        System.out.println("Introduce el dni");
+        dni = Terminal.lector.nextInt();
+        Terminal.lector.nextLine();
+
+        return new Jugador(nombre, juego, dni);
     }
 
     public static Entrenador pedirEntrenador() {
         String nombre;
         int tactica;
+        int dni;
 
         System.out.println("Introduce el nombre del jugador");
         nombre = Terminal.lector.nextLine();
@@ -52,6 +58,10 @@ public class Pedir {
         tactica = Terminal.lector.nextInt();
         Terminal.lector.nextLine();
 
-        return new Entrenador(nombre, tactica);
+        System.out.println("Introduce el dni");
+        dni = Terminal.lector.nextInt();
+        Terminal.lector.nextLine();
+
+        return new Entrenador(nombre, tactica, dni);
     }
 }

@@ -6,9 +6,8 @@ public abstract class Persona {
     private final int DNI;
     private String nombre;
 
-    public Persona(String nombre) {
-        this.DNI = sigDNI;
-        sigDNI++;
+    public Persona(String nombre, int dni) {
+        this.DNI = dni;
         this.nombre = nombre;
     }
 

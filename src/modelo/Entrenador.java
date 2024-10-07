@@ -4,8 +4,8 @@ public class Entrenador extends Persona {
 
     private int tactica;
 
-    public Entrenador(String nombre, int tactica) {
-        super(nombre);
+    public Entrenador(String nombre, int tactica, int dni) {
+        super(nombre, dni);
         this.tactica = tactica;
     }
 

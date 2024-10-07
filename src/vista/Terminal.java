@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import modelo.Liga;
 
-
 public class Terminal {
 
-    private static ArrayList<Liga> ligas;
+    protected static ArrayList<Liga> ligas;
 
     protected static Scanner lector = new Scanner(System.in);
 

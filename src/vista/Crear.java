@@ -36,7 +36,7 @@ public class Crear {
             salir = true;
         }
 
-    } while ((leido > 5 || leido < 1) && salir);
+    } while ((leido > 5 || leido < 1) && !salir);
 
 
     }
@@ -47,6 +47,7 @@ public class Crear {
         System.out.println("Escriba [2] para crear equipo");
         System.out.println("Escriba [3] para crear jugador");
         System.out.println("Escriba [4] para crear entrenador");
+        System.out.println("Escriba [5] para volver");
     }
 
     public static void crearLiga() {

@@ -30,12 +30,20 @@ public class Liga {
         return sigCodLiga;
     }
 
+    public int getNumEquipos() {
+        return this.NUM_EQUIPOS;
+    }
+
     public int getCOD_LIGA() {
         return this.COD_LIGA;
     }
 
     public ArrayList<Equipo> getEquipos() {
         return this.equipos;
+    }
+
+    public Equipo getEquipo(int pos) {
+        return equipos.get(pos);
     }
 
     public void insertarEquipo(Equipo equipo) {

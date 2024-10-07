@@ -6,7 +6,6 @@ import modelo.Jugador;
 import modelo.Liga;
 import static vista.Pedir.*;
 
-
 public class Eliminar {
 
     public static void preguntarEliminar() {
@@ -20,27 +19,27 @@ public class Eliminar {
             leido = Terminal.lector.nextInt();
             Terminal.lector.nextLine();
 
-        if (leido == 1) {
-            eliminarLiga();
-        }
+            if (leido == 1) {
+                eliminarLiga();
+            }
 
-        if (leido == 2) {
-            eliminarEquipo();
-        }
+            if (leido == 2) {
+                eliminarEquipo();
+            }
 
-        if (leido == 3) {
-            eliminarJugador();
-        }
+            if (leido == 3) {
+                eliminarJugador();
+            }
 
-        if (leido == 4) {
-            eliminarEntrenador();
-        }
-        
-        if (leido == 5) {
-            salir = true;
-        }
+            if (leido == 4) {
+                eliminarEntrenador();
+            }
 
-    } while ((leido > 5 || leido < 1) && salir);
+            if (leido == 5) {
+                salir = true;
+            }
+
+        } while ((leido > 5 || leido < 1) && !salir);
 
     }
 
@@ -50,6 +49,7 @@ public class Eliminar {
         System.out.println("Escriba [2] para eliminar equipo");
         System.out.println("Escriba [3] para eliminar jugador");
         System.out.println("Escriba [4] para eliminar entrenador");
+        System.out.println("Escriba [5] para volver");
     }
 
     public static void eliminarLiga() {

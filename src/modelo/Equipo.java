@@ -40,11 +40,24 @@ public class Equipo {
     }
 
     public Jugador[] getJugadores() {
-        return jugadores;
+        return this.jugadores;
+    }
+
+    public int getNumJugadores() {
+        return this.numJugadores;
+    }
+
+    public Jugador getJugador(int pos) {
+        if (pos < this.numJugadores) {
+            return jugadores[pos];
+
+        } else {
+            return null;
+        }
     }
 
     public Entrenador getEntrenador() {
-        return entrenador;
+        return this.entrenador;
     }
 
     public boolean setEntrenador(Entrenador entrenador) {
