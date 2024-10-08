@@ -1,5 +1,6 @@
 import modelo.Entrenador;
 import modelo.Jugador;
+import vista.Terminal;
 
 public class App {
     public static void main(String[] args) {
@@ -18,5 +19,7 @@ public class App {
         System.out.print("\nEl entrenador ");
         System.out.print("[" + andres.getNombre() + "]");
         System.out.println(" tiene el DNI: " + andres.getDNI());
+
+        Terminal.preguntar();
     }
 }

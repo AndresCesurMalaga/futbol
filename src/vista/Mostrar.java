@@ -71,12 +71,14 @@ public class Mostrar {
         int pos;
 
         Liga liga = pedirLiga();
-        pos = Terminal.ligas.indexOf(liga);
+        pos = Terminal.buscarLiga(liga);
 
-        System.out.println(Terminal.ligas.get(pos).getCOD_LIGA());
-        System.out.println(Terminal.ligas.get(pos).getEquipos());
-        System.out.println(Terminal.ligas.get(pos).getNombre());
-        System.out.println(Terminal.ligas.get(pos).getNumEquipos());
+        if (pos > -1) {
+            System.out.println(Terminal.ligas.get(pos).getCOD_LIGA());
+            System.out.println(Terminal.ligas.get(pos).getEquipos());
+            System.out.println(Terminal.ligas.get(pos).getNombre());
+            System.out.println(Terminal.ligas.get(pos).getNumEquipos());
+        }
     }
 
     public static void mostrarEquipo() {
@@ -135,7 +137,8 @@ public class Mostrar {
             while ((cont2 < (Terminal.ligas.get(cont).getEquipos().size())) && (!found)) {
                 pos = Terminal.ligas.get(cont).getEquipos().get(cont2).buscarJugador(jugador);
 
-                if (pos>-1 && (Terminal.ligas.get(cont).getEquipos().get(cont2).getJugador(pos).getDNI() == jugador.getDNI())) {
+                if (pos > -1 && (Terminal.ligas.get(cont).getEquipos().get(cont2).getJugador(pos).getDNI() == jugador
+                        .getDNI())) {
                     found = true;
                 } else {
                     cont2++;
@@ -162,7 +165,7 @@ public class Mostrar {
     }
 
     public static void mostrarTodo() {
-        //sin implementar
+        // sin implementar
     }
 
 }

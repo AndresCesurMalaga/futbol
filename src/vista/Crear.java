@@ -16,28 +16,27 @@ public class Crear {
             leido = Terminal.lector.nextInt();
             Terminal.lector.nextLine();
 
-        if (leido == 1) {
-            crearLiga();
-        }
+            if (leido == 1) {
+                crearLiga();
+            }
 
-        if (leido == 2) {
-            crearEquipo();
-        }
+            if (leido == 2) {
+                crearEquipo();
+            }
 
-        if (leido == 3) {
-            crearJugador();
-        }
+            if (leido == 3) {
+                crearJugador();
+            }
 
-        if (leido == 4) {
-            crearEntrenador();
-        }
+            if (leido == 4) {
+                crearEntrenador();
+            }
 
-        if (leido == 5) {
-            salir = true;
-        }
+            if (leido == 5) {
+                salir = true;
+            }
 
-    } while ((leido > 5 || leido < 1) && !salir);
-
+        } while ((leido > 5 || leido < 1) && !salir);
 
     }
 
@@ -59,8 +58,11 @@ public class Crear {
     public static void crearEquipo() {
         Liga liga = pedirLiga();
         Equipo equipo = pedirEquipo();
-        
-        Terminal.ligas.get(Terminal.ligas.indexOf(liga)).insertarEquipo(equipo);
+        int ligaPos = Terminal.buscarLiga(liga);
+
+        if (ligaPos > -1) {
+            Terminal.ligas.get(ligaPos).insertarEquipo(equipo);
+        }
     }
 
     public static void crearEntrenador() {
@@ -71,10 +73,13 @@ public class Crear {
         Equipo equipo = pedirEquipo();
         Entrenador entrenador = pedirEntrenador();
 
-        ligaPos =Terminal.ligas.indexOf(liga);
-        equipoPos = Terminal.ligas.get(ligaPos).buscarEquipo(equipo);
-
-        Terminal.ligas.get(ligaPos).getEquipo(equipoPos).setEntrenador(entrenador);
+        ligaPos = Terminal.buscarLiga(liga);
+        if (ligaPos > -1) {
+            equipoPos = Terminal.ligas.get(ligaPos).buscarEquipo(equipo);
+            if (equipoPos > -1) {
+                Terminal.ligas.get(ligaPos).getEquipo(equipoPos).setEntrenador(entrenador);
+            }
+        }
     }
 
     public static void crearJugador() {
@@ -85,7 +90,7 @@ public class Crear {
         Equipo equipo = pedirEquipo();
         Jugador jugador = pedirJugador();
 
-        ligaPos =Terminal.ligas.indexOf(liga);
+        ligaPos = Terminal.buscarLiga(liga);
         equipoPos = Terminal.ligas.get(ligaPos).buscarEquipo(equipo);
 
         Terminal.ligas.get(ligaPos).getEquipo(equipoPos).añadirJugador(jugador);

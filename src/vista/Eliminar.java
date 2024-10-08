@@ -92,7 +92,7 @@ public class Eliminar {
             cont2 = 0;
 
             while ((cont2 < (Terminal.ligas.get(cont).getEquipos().size())) && (!found)) {
-                if (Terminal.ligas.get(cont).getEquipos().get(cont2).getEntrenador().getDNI()==dni) {
+                if (Terminal.ligas.get(cont).getEquipos().get(cont2).getEntrenador().getDNI() == dni) {
                     found = true;
                     Terminal.ligas.get(cont).getEquipos().get(cont2).eliminarEntrenador();
                 }
@@ -126,7 +126,7 @@ public class Eliminar {
             while ((cont2 < (Terminal.ligas.get(cont).getEquipos().size())) && (!found)) {
                 pos = Terminal.ligas.get(cont).getEquipos().get(cont2).buscarJugador(jugador);
 
-                if ((pos>-1) && (Terminal.ligas.get(cont).getEquipos().get(cont2).getJugador(pos).getDNI() == dni)) {
+                if ((pos > -1) && (Terminal.ligas.get(cont).getEquipos().get(cont2).getJugador(pos).getDNI() == dni)) {
                     found = true;
                     Terminal.ligas.get(cont).getEquipos().get(cont2).eliminarJugador(pos);
 
@@ -142,7 +142,6 @@ public class Eliminar {
                 cont++;
             }
         }
-
 
     }
 }
