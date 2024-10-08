@@ -69,7 +69,7 @@ public class Equipo {
         return true;
     }
 
-    public boolean eliminarEntrenador(Entrenador entrenador) {
+    public boolean eliminarEntrenador() {
         if (this.entrenador == null) {
             return false;
 
@@ -105,6 +105,10 @@ public class Equipo {
         } else {
             return false;
         }
+    }
+
+    public void eliminarJugador(int pos) {
+        this.jugadores[pos]=null;
     }
 
     // Permite comparar dos objetos de tipo Equipo

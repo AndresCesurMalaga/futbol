@@ -52,17 +52,42 @@ public class Crear {
 
     public static void crearLiga() {
         Liga liga = pedirLiga();
+
+        Terminal.ligas.add(liga);
     }
 
     public static void crearEquipo() {
+        Liga liga = pedirLiga();
         Equipo equipo = pedirEquipo();
+        
+        Terminal.ligas.get(Terminal.ligas.indexOf(liga)).insertarEquipo(equipo);
     }
 
     public static void crearEntrenador() {
+        int ligaPos;
+        int equipoPos;
+
+        Liga liga = pedirLiga();
+        Equipo equipo = pedirEquipo();
         Entrenador entrenador = pedirEntrenador();
+
+        ligaPos =Terminal.ligas.indexOf(liga);
+        equipoPos = Terminal.ligas.get(ligaPos).buscarEquipo(equipo);
+
+        Terminal.ligas.get(ligaPos).getEquipo(equipoPos).setEntrenador(entrenador);
     }
 
     public static void crearJugador() {
-        Jugador jugador = jugador = pedirJugador();
+        int ligaPos;
+        int equipoPos;
+
+        Liga liga = pedirLiga();
+        Equipo equipo = pedirEquipo();
+        Jugador jugador = pedirJugador();
+
+        ligaPos =Terminal.ligas.indexOf(liga);
+        equipoPos = Terminal.ligas.get(ligaPos).buscarEquipo(equipo);
+
+        Terminal.ligas.get(ligaPos).getEquipo(equipoPos).añadirJugador(jugador);
     }
 }

@@ -50,7 +50,7 @@ public class Liga {
         this.equipos.add(equipo);
     }
 
-    public void eliminarEquipo(Equipo equipo) {
+    public boolean eliminarEquipo(Equipo equipo) {
         boolean found = false;
         int cont = 0;
         final int TAM = this.equipos.size();
@@ -64,6 +64,7 @@ public class Liga {
                 cont++;
             }
         }
+        return found;
     }
 
     public int buscarEquipo(Equipo equipo) {

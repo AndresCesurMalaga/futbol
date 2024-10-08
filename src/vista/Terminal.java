@@ -41,4 +41,12 @@ public class Terminal {
         System.out.println("Escriba [3] para eliminar");
     }
 
+    public static void cargarDatos(){
+
+    }
+
+    public static void guardarDatos(){
+
+    }
+
 }

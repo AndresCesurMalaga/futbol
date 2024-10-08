@@ -135,11 +135,7 @@ public class Mostrar {
             while ((cont2 < (Terminal.ligas.get(cont).getEquipos().size())) && (!found)) {
                 pos = Terminal.ligas.get(cont).getEquipos().get(cont2).buscarJugador(jugador);
 
-                if (Terminal.ligas.get(cont).getEquipos().get(cont2).getEntrenador().getDNI() == jugador.getDNI()) {
-                    found = true;
-                }
-
-                if (pos != -1) {
+                if (pos>-1 && (Terminal.ligas.get(cont).getEquipos().get(cont2).getJugador(pos).getDNI() == jugador.getDNI())) {
                     found = true;
                 } else {
                     cont2++;

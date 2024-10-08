@@ -1,6 +1,5 @@
 package vista;
 
-import modelo.Entrenador;
 import modelo.Equipo;
 import modelo.Jugador;
 import modelo.Liga;
@@ -52,19 +51,98 @@ public class Eliminar {
         System.out.println("Escriba [5] para volver");
     }
 
-    public static void eliminarLiga() {
+    public static boolean eliminarLiga() {
         Liga liga = pedirLiga();
+
+        return Terminal.ligas.remove(liga);
     }
 
-    public static void eliminarEquipo() {
+    public static boolean eliminarEquipo() {
         Equipo equipo = pedirEquipo();
+        int pos = 0;
+        int cont = 0;
+        boolean found = false;
+
+        while ((cont < Terminal.ligas.size()) && (!found)) {
+            found = Terminal.ligas.get(cont).eliminarEquipo(equipo);
+
+            if (pos != -1) {
+                found = true;
+            } else {
+                cont++;
+            }
+        }
+
+        return found;
     }
 
     public static void eliminarEntrenador() {
-        Entrenador entrenador = pedirEntrenador();
+        int pos = 0;
+        int cont = 0;
+        int cont2 = 0;
+        boolean found = false;
+        int dni;
+
+        System.out.println("Introduce el DNI (Sin letra)");
+        dni = Terminal.lector.nextInt();
+        Terminal.lector.nextLine();
+
+        while ((cont < Terminal.ligas.size()) && (!found)) {
+
+            cont2 = 0;
+
+            while ((cont2 < (Terminal.ligas.get(cont).getEquipos().size())) && (!found)) {
+                if (Terminal.ligas.get(cont).getEquipos().get(cont2).getEntrenador().getDNI()==dni) {
+                    found = true;
+                    Terminal.ligas.get(cont).getEquipos().get(cont2).eliminarEntrenador();
+                }
+
+                if (pos != -1) {
+                    found = true;
+                } else {
+                    cont2++;
+                }
+            }
+            cont++;
+        }
     }
 
     public static void eliminarJugador() {
-        Jugador jugador = jugador = pedirJugador();
+        int pos = 0;
+        int cont = 0;
+        int cont2 = 0;
+        boolean found = false;
+        int dni;
+
+        System.out.println("Introduce el DNI (Sin letra)");
+        dni = Terminal.lector.nextInt();
+        Terminal.lector.nextLine();
+        Jugador jugador = new Jugador("temp", 0, dni);
+
+        while ((cont < Terminal.ligas.size()) && (!found)) {
+
+            cont2 = 0;
+
+            while ((cont2 < (Terminal.ligas.get(cont).getEquipos().size())) && (!found)) {
+                pos = Terminal.ligas.get(cont).getEquipos().get(cont2).buscarJugador(jugador);
+
+                if ((pos>-1) && (Terminal.ligas.get(cont).getEquipos().get(cont2).getJugador(pos).getDNI() == dni)) {
+                    found = true;
+                    Terminal.ligas.get(cont).getEquipos().get(cont2).eliminarJugador(pos);
+
+                } else {
+                    cont2++;
+                }
+
+            }
+
+            if (pos != -1) {
+                found = true;
+            } else {
+                cont++;
+            }
+        }
+
+
     }
 }
